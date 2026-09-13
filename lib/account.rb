@@ -41,16 +41,20 @@ class Account
   def username
     @username
   end
+
   def password
     @password
   end
+
   def recoveryPhrase
     @recoveryPhrase
   end
+
   def pin
     @pin
   end
 
+  # TODO: For setters, need to update in DB when any of the attributes are updated
   def recoveryPhrase=(new_recoveryPhrase)
     @recoveryPhrase = new_recoveryPhrase
   end
