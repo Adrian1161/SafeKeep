@@ -21,3 +21,15 @@
 - Defining `PassHandler` class
 - Defining methods for `generate_password`, `decryptPassword`, and `encryptPassword`
 - Adding TODO comments for encryption, decryption, and password generation
+
+# Pairing Log 
+
+Session 3 - 2026-09-12
+
+Driver: Adrian
+Navigator: Philip
+
+Work completed
+- Defined Account Security class
+
+=end 
