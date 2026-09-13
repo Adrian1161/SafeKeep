@@ -1,17 +1,4 @@
 # account.rb
-=begin
-Pairing Log
-
-Session 1 — 2026-09-12
-
-Driver: Philip
-Navigator: Adrian
-
-Work Completed
-- Defining Account class
-- Adding attr_accessor for username, password, recoveryPhrase, and pin
-- Adding TODO comments for encryption, decryption, fetching account details, and updating account details
-=end
 
 =begin
 This file contains the Account class, which represents a user account with attributes such as username, password, recovery phrase, and PIN.
