@@ -37,4 +37,34 @@ class Account
     # TODO: Implement updating account details in database
   end
 
+  # Adding Getters and Setters
+  def username
+    @username
+  end
+  def password
+    @password
+  end
+  def recoveryPhrase
+    @recoveryPhrase
+  end
+  def pin
+    @pin
+  end
+
+  def recoveryPhrase=(new_recoveryPhrase)
+    @recoveryPhrase = new_recoveryPhrase
+  end
+
+  def pin=(new_pin)
+    @pin = new_pin
+  end
+
+  def password=(new_password)
+    @password = new_password
+  end
+
+  def username=(new_username)
+    @username = new_username
+  end
+
 end
