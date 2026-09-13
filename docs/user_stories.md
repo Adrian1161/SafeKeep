@@ -20,7 +20,7 @@ I as a User want an error message to be displayed when an invalid password is en
 ### Acceptance Criteria:
 When a User enters an invalid password, an error message is displayed.
 
-## Story 5:
+## Story 5 (Essential):
 I as a User want to see my selected password unencrypted after entering a PIN.
 ### Acceptance Criteria:
 User is able to view their stored password in plain text after entering a valid PIN.
