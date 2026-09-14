@@ -10,9 +10,14 @@
     - Account will be created when a user creates their account so we can store their credentials
     - PIN will be used to see the unencrypted version of their password to ensure it is the user looking at it.
     - Also Account will be used during login.
-- AccountSecurity
-  - Purpose of the Module
-  - How it interacts within the application
+- ### AccountSecurity
+  - #### Purpose of the Module
+    - The AccountSecurity module will allow users to sign in to their account. It will also give users a way to recover their account using a recovery phrase.
+    - AccountSecurity is also responsible for creating a recovery phrase.
+  - #### How it interacts within the application
+    - AccountSecurity takes in username and password which is then checked against the database if correct it will sign in the user.
+    - AccountRecovery takes in username and a recoveryPhrase which will let the user change their password.
+    - AccountPhraseCreation makes a phrase which is then attached to the users entry in the database for use in AccountRecovery
 - ### PassHandler
   - #### Purpose of the Module
     - The PassHandler module is meant to represent some of the account actions which are supposed to take place. Such as encrypting the password for storage, decrypting the password to see in displayed properly, and the biggest portion is to generate passwords.
@@ -21,9 +26,14 @@
     - So when the user adds a new password to store, PassHandler will encrypt it for security purposes.
     - The description will only take place if the user gives us their PIN which was set up in account so they can see the password in plain text.
     - The password generator will generate a plain text string based on a set of requirements which translate into arguments of the module method, and will generate a password based on those requirements.
-- PasswordStore
-  - Purpose of the Module
-  - How it interacts within the application
+- ### PasswordStore
+  - #### Purpose of the Module
+    - The passwordStore module is responsible for storing the username, password, website, and passwordIdentifiers that the user enters. It will will also allow the user to remove and update their passwords.
+    - Users can also set a timer to remind them to when to change their passwords.
+  - #### How it interacts within the application
+    - When the user wants to save a new password they will fill out all the details which is then saved and stored.
+    - They will then be able to remove passwords or update them.
+    - passwords can also have timers set on them that remind the user to update their password.
 
 
 ## User Interface
