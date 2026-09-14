@@ -15,8 +15,8 @@
     - The AccountSecurity module will allow users to sign in to their account. It will also give users a way to recover their account using a recovery phrase.
     - AccountSecurity is also responsible for creating a recovery phrase.
   - #### How it interacts within the application
-    - AccountSecurity takes in username and password which is then checked against the database if correct it will sign in the user.
-    - AccountRecovery takes in username and a recoveryPhrase which will let the user change their password.
+    - AccountSecurity takes in `username` and `password` which is then checked against the database if correct it will sign in the user.
+    - AccountRecovery takes in `username` and a `recoveryPhrase` which will let the user change their password.
     - AccountPhraseCreation makes a phrase which is then attached to the users entry in the database for use in AccountRecovery
 - ### PassHandler
   - #### Purpose of the Module
@@ -28,7 +28,7 @@
     - The password generator will generate a plain text string based on a set of requirements which translate into arguments of the module method, and will generate a password based on those requirements.
 - ### PasswordStore
   - #### Purpose of the Module
-    - The passwordStore module is responsible for storing the username, password, website, and passwordIdentifiers that the user enters. It will will also allow the user to remove and update their passwords.
+    - The passwordStore module is responsible for storing the `username`, `password`, `website`, and `passwordIdentifiers` that the user enters. It will will also allow the user to remove and update their passwords.
     - Users can also set a timer to remind them to when to change their passwords.
   - #### How it interacts within the application
     - When the user wants to save a new password they will fill out all the details which is then saved and stored.
