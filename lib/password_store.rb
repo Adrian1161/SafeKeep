@@ -1,6 +1,6 @@
 class PasswordStore
 
-    attr_accessor :username, :password, :website, :passwordIdentifiers
+    attr_accessor :username, :password, :website, :passwordIdentifiers, :accountId
 
     # Method that allows user to add a password they want to save 
     def addPassword(username, password, website, passwordIdentifiers)
