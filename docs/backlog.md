@@ -1,10 +1,10 @@
 # Backlog
 
 ### Feature / User Story Status
-- #### Story 1 (InProgress) 5-Story Points
+- #### Story 1 (Done) 5-Story Points
   - Requirements Captured (Done)
-  - Implementation (InProgress)
-  - Testing Complete (To Do)
+  - Implementation (Done)
+  - Testing Complete (Done)
 - #### Story 2 (InProgress) 5-Story Points
   - Requirements Captured (Done)
   - Implementation (InProgress)
