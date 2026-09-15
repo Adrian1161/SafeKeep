@@ -8,6 +8,5 @@ ActiveRecord::Schema[8.1].define(version: 1) do
         p.timestamps
 
 
-        p.index["password_id"], unique: true
     end
 end
