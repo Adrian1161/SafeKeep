@@ -5,18 +5,18 @@
   - Requirements Captured (Done)
   - Implementation (Done)
   - Testing Complete (Done)
-- #### Story 2 (InProgress) 5-Story Points
+- #### Story 2 (Done) 5-Story Points
   - Requirements Captured (Done)
-  - Implementation (InProgress)
-  - Testing Complete (To Do)
+  - Implementation (Done)
+  - Testing Complete (Done)
 - #### Story 3 (InProgress) 3-Story Points
   - Requirements Captured (Done)
   - Implementation (InProgress)
   - Testing Complete (To Do)
 - #### Story 4 (InProgress) 2-Story Points
   - Requirements Captured (Done)
-  - Implementation (InProgress)
-  - Testing Complete (To Do)
+  - Implementation (Done)
+  - Testing Complete (Done)
 - #### Story 5 (InProgress) 8-Story Points
   - Requirements Captured (Done)
   - Implementation (InProgress)
