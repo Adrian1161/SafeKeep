@@ -1,31 +1,31 @@
 class PasswordStore
 
-    attr_accessor :username, :password, :website, :passwordIdentifiers, :accountId
+    attr_accessor :username, :password, :website, :password_identifiers, :account_id
 
     # Method that allows user to add a password they want to save 
-    def addPassword(username, password, website, passwordIdentifiers)
+    def addPassword(username, password, website, password_identifiers)
         #TODO: Implement logic for adding a password
     end
 
     # Method that allows the user can remove password 
-    def removePassword(passwordIdentifiers)
+    def removePassword(password_identifiers)
         #TODO: Implement logic for removing password
     end
 
     # Method that allows the user to update saved passwords
-    def updatePassword(passwordIdentifiers)
+    def updatePassword(password_identifiers)
         #TODO: Implement logic for updating password
     end
 
     # Method for setting timer to remind user to change their password
-    def passwordTimer(passwordIdentifiers)
+    def passwordTimer(password_identifiers)
         #TODO: Implement logic for adding a password timer 
     end
 
 
     # Getters
-    def passwordIdentifiers
-        @passwordIdentifiers
+    def password_identifiers
+        @password_identifiers
     end
 
     def username
@@ -40,9 +40,13 @@ class PasswordStore
         @website
     end
 
+    def account_id
+        @account_id
+    end
+
     # Setters 
-    def passwordIdentifiers=(new_passwordIdentifiers)
-        @passwordIdentifiers = new_passwordIdentifiers
+    def password_identifiers=(new_password_identifiers)
+        @password_identifiers = new_password_identifiers
     end
 
     def username=(new_username)
@@ -55,6 +59,10 @@ class PasswordStore
 
     def website=(new_website)
         @website = new_website
+    end
+
+    def account_id=(new_account_id)
+        @account_id = new_account_id
     end
 
 
