@@ -1,43 +1,43 @@
 # Backlog
 
 ### Feature / User Story Status
-- #### Story 1 (InProgress)
+- #### Story 1 (InProgress) 5-Story Points
   - Requirements Captured (Done)
   - Implementation (InProgress)
   - Testing Complete (To Do)
-- #### Story 2 (InProgress)
+- #### Story 2 (InProgress) 5-Story Points
   - Requirements Captured (Done)
   - Implementation (InProgress)
   - Testing Complete (To Do)
-- #### Story 3 (InProgress)
+- #### Story 3 (InProgress) 3-Story Points
   - Requirements Captured (Done)
   - Implementation (InProgress)
   - Testing Complete (To Do)
-- #### Story 4 (InProgress)
+- #### Story 4 (InProgress) 2-Story Points
   - Requirements Captured (Done)
   - Implementation (InProgress)
   - Testing Complete (To Do)
-- #### Story 5 (InProgress)
+- #### Story 5 (InProgress) 8-Story Points
   - Requirements Captured (Done)
   - Implementation (InProgress)
   - Testing Complete (To Do)
-- #### Story 6 (InProgress)
+- #### Story 6 (InProgress) 5-Story Points
   - Requirements Captured (Done)
   - Implementation (InProgress)
   - Testing Complete (To Do)
-- #### Story 7 (InProgress)
+- #### Story 7 (InProgress) 5-Story Points
   - Requirements Captured (Done)
   - Implementation (InProgress)
   - Testing Complete (To Do)
-- #### Story 8 (InProgress)
+- #### Story 8 (InProgress) 8-Story Points
   - Requirements Captured (Done)
   - Implementation (InProgress)
   - Testing Complete (To Do)
-- #### Story 9 (InProgress)
+- #### Story 9 (InProgress) 5-Story Points
   - Requirements Captured (Done)
   - Implementation (InProgress)
   - Testing Complete (To Do)
-- #### Story 10 (InProgress)
+- #### Story 10 (InProgress) 3-Story Points
   - Requirements Captured (Done)
   - Implementation (InProgress)
   - Testing Complete (To Do)
