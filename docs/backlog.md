@@ -77,6 +77,6 @@
 
 - #### Users can update their `username` (To Do)
 - #### Users can update their `PIN` (To Do)
-- #### Users can remove the password timer for specified credential (To Do)
+- #### Users can remove the password timer for a specified credential (To Do)
 - #### Users can update their `password` (To Do)
 - #### Delete Account (To Do)
