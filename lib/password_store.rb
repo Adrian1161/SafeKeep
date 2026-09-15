@@ -21,51 +21,6 @@ class PasswordStore
     def passwordTimer(password_identifiers)
         #TODO: Implement logic for adding a password timer 
     end
-
-
-    # Getters
-    def password_identifiers
-        @password_identifiers
-    end
-
-    def username
-        @username
-    end
-
-    def password
-        @password
-    end
-
-    def website
-        @website
-    end
-
-    def account_id
-        @account_id
-    end
-
-    # Setters 
-    def password_identifiers=(new_password_identifiers)
-        @password_identifiers = new_password_identifiers
-    end
-
-    def username=(new_username)
-        @username = new_username
-    end
-    
-    def password=(new_password)
-        @password = new_password
-    end
-
-    def website=(new_website)
-        @website = new_website
-    end
-
-    def account_id=(new_account_id)
-        @account_id = new_account_id
-    end
-
-
     
 
 
