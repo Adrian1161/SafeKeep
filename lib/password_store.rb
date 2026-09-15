@@ -2,6 +2,10 @@ class PasswordStore
 
     attr_accessor :username, :password, :website, :password_identifiers, :account_id
 
+    def initialize(account_id) 
+        @account_id = account_id 
+    end
+
     # Method that allows user to add a password they want to save 
     def addPassword(username, password, website, password_identifiers)
         #TODO: Implement logic for adding a password
@@ -21,6 +25,22 @@ class PasswordStore
     def passwordTimer(password_identifiers)
         #TODO: Implement logic for adding a password timer 
     end
+
+    def viewPasswords()
+        password = Password.where(account_id: @account_id)
+
+        if password.empty?
+        
+        else
+            password.each do |savedInformation|
+                puts "Website: #{savedInformation.website}"
+                puts "Username: #{savedInformation.username}"
+                puts "Password: #{savedInformation.password}"
+                puts "---------------------------"
+            end
+        end 
+    end
+
     
 
 
