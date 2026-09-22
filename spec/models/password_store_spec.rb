@@ -30,4 +30,17 @@ RSpec.describe PasswordStore do
         )
         expect(Password.count).to eq(2)
     end
+
+    it "Allows the user to delete a password entry" do
+        password_store = PasswordStore.new("1")
+        password_store.removePassword(
+            "Microsoft"
+        )
+        expect(Password.count).to eq(0)
+    end 
+
+    it "A user tries to delete a password that does not exist" do 
+        password_store = PasswordStore.new("1")
+        expect{ password_store.removePassword("FailCase")}.to output("Could not find a password for FailCase\n").to_stdout
+    end
 end 

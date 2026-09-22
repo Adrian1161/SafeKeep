@@ -18,8 +18,19 @@ class PasswordStore
     end
 
     # Method that allows the user can remove password 
-    def removePassword(password_identifiers)
+    def removePassword(website)
         #TODO: Implement logic for removing password
+        password = Password.find_by(
+            website: website,
+            account_id: @account_id
+        )
+
+        if password
+            password.destroy
+        
+        else
+             puts "Could not find a password for #{website}"
+        end 
     end
 
     # Method that allows the user to update saved passwords
@@ -35,15 +46,17 @@ class PasswordStore
     def viewPasswords()
         password = Password.where(account_id: @account_id)
 
-        if password.empty?
-        
-        else
-            password.each do |savedInformation|
+        if password.exists?
+             password.each do |savedInformation|
                 puts "Website: #{savedInformation.website}"
                 puts "Username: #{savedInformation.username}"
                 puts "Password: #{savedInformation.password}"
                 puts "---------------------------"
             end
+        
+        else
+            puts "Could not find any saved passwords"
+           
         end 
     end
 
