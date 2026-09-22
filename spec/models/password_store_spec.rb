@@ -43,4 +43,12 @@ RSpec.describe PasswordStore do
         password_store = PasswordStore.new("1")
         expect{ password_store.removePassword("FailCase")}.to output("Could not find a password for FailCase\n").to_stdout
     end
+
+    it "Allows the user to update password for a website" do 
+        password_store = PasswordStore.new("1")
+        expect{
+            password_store.updatePassword(Microsoft, UpdatedPasswordTest).to output("password for Microsoft Updated to UpdatedPasswordTest\n").to_stdout
+
+        }
+    end
 end 

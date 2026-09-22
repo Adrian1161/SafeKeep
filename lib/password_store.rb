@@ -19,7 +19,6 @@ class PasswordStore
 
     # Method that allows the user can remove password 
     def removePassword(website)
-        #TODO: Implement logic for removing password
         password = Password.find_by(
             website: website,
             account_id: @account_id
@@ -34,12 +33,22 @@ class PasswordStore
     end
 
     # Method that allows the user to update saved passwords
-    def updatePassword(password_identifiers)
-        #TODO: Implement logic for updating password
+    def updatePassword(website, new_password)
+        password = Password.find_by(
+            website: website,
+            account_id: @account_id
+        )
+
+        if password 
+            password.update(password: new_password)
+            puts "password for #{website} Updated to #{password.password}"
+        else
+             puts "Could not find website: #{website}"
+        end 
     end
 
     # Method for setting timer to remind user to change their password
-    def passwordTimer(password_identifiers)
+    def passwordTimer(website)
         #TODO: Implement logic for adding a password timer 
     end
 
