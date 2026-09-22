@@ -1,14 +1,20 @@
 class PasswordStore
 
-    attr_accessor :username, :password, :website, :password_identifiers, :account_id
+    attr_accessor :username, :password, :website, :password_identifiers
 
     def initialize(account_id) 
         @account_id = account_id 
     end
 
     # Method that allows user to add a password they want to save 
-    def addPassword(username, password, website, password_identifiers)
-        #TODO: Implement logic for adding a password
+    def addPassword(username, password, website, password_identifiers, account_id)
+        Password.create(
+            username: username,
+            password: password,
+            website: website,
+            password_identifiers: password_identifiers,
+            account_id: @account_id
+        )
     end
 
     # Method that allows the user can remove password 

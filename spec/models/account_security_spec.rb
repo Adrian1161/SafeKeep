@@ -16,7 +16,7 @@ end
   it "Log in is successful" do
     account_security = AccountSecurity.new
 
-    #run1 = account_security.login("CaseTest","CaseTest")
+    run1 = account_security.login("CaseTest","CaseTest")
 
     puts Account.all.inspect
 
