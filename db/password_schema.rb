@@ -5,8 +5,7 @@ ActiveRecord::Schema[8.1].define(version: 1) do
         p.string "website", null: false
         p.string "password_identifiers"
         p.string "account_id", null: false
+        p.date "change_password_reminder",
         p.timestamps
-
-
     end
 end

@@ -7,13 +7,14 @@ class PasswordStore
     end
 
     # Method that allows user to add a password they want to save 
-    def addPassword(username, password, website, password_identifiers, account_id)
+    def addPassword(username, password, website, password_identifiers, account_id, change_password_reminder)
         Password.create(
             username: username,
             password: password,
             website: website,
             password_identifiers: password_identifiers,
-            account_id: @account_id
+            account_id: @account_id,
+            change_password_reminder: @change_password_reminder
         )
     end
 
@@ -48,8 +49,29 @@ class PasswordStore
     end
 
     # Method for setting timer to remind user to change their password
-    def passwordTimer(website)
-        #TODO: Implement logic for adding a password timer 
+    def passwordTimer(website) 
+        password = Password.find_by(
+            website: website,
+            account_id: @account_id
+        )
+
+        if password
+            password.update(change_password_reminder: 1.month.from_now)
+            puts "Password reminder set for #{password.change_password_reminder}"
+        else
+            puts "Could not find website: #{website}"
+        end
+    end
+
+    def checkTimer()
+        password = Password.where(
+            account_id: @account_id
+        )
+        password.each do |password|
+            if password.change_password_reminder && password.change_password_reminder <= Date.current
+                puts "Password for #{password.website} needs to be updated"
+            end
+        end 
     end
 
     def viewPasswords()
@@ -65,7 +87,6 @@ class PasswordStore
         
         else
             puts "Could not find any saved passwords"
-           
         end 
     end
 
