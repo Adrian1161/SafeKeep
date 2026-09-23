@@ -48,6 +48,21 @@ class PasswordStore
         end 
     end
 
+    #method for removing timer
+    def removeTimer(website)
+        password = Password.find_by(
+            website: website,
+            account_id: @account_id
+        )
+
+        if password
+            password.update(change_password_reminder: nil)
+            puts "Password reminder removed for #{website}"
+        else
+             puts "Could not find website: #{website}"
+        end
+    end
+
     # Method for setting timer to remind user to change their password
     def passwordTimer(website) 
         password = Password.find_by(

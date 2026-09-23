@@ -76,6 +76,13 @@ RSpec.describe PasswordStore do
 
     end
 
+    it "allows the user to remove their timer" do
+        password_store = PasswordStore.new("1")
+        password_store.passwordTimer("Microsoft")
+        password_store.removeTimer("Microsoft")
+        
+        expect(password.change_password_reminder).to be_nil
+    end
 
 
 end 
