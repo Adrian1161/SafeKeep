@@ -33,10 +33,10 @@
   - Requirements Captured (Done)
   - Implementation (InProgress)
   - Testing Complete (To Do)
-- #### Story 9 (InProgress) 5-Story Points
+- #### Story 9 (Done) 5-Story Points
   - Requirements Captured (Done)
-  - Implementation (InProgress)
-  - Testing Complete (To Do)
+  - Implementation (Done)
+  - Testing Complete (Done)
 - #### Story 10 (InProgress) 3-Story Points
   - Requirements Captured (Done)
   - Implementation (InProgress)
