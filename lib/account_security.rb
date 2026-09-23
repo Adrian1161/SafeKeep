@@ -2,6 +2,7 @@ require_relative "password_store"
 # add back when testing is done
 
 require "bcrypt"
+require "bip_mnemonic2"
 
 class AccountSecurity
     # Allows the user to login in
@@ -35,7 +36,16 @@ class AccountSecurity
     end
 
     # Creates and stores a recovery phrase for the user
-    def recoveryPhraseCreation(username)
-      # TODO: Implement logic for generating a recovery phrase
+    def recoveryPhraseCreation()
+        # This line creates the phrases for the user default values are 128 bits and in english
+        recovery_phrase = BipMnemonic.to_mnemonic(
+            bits: 128,
+            language: "english"
+        )
+
+        puts "Your recovery phrases are: #{recovery_phrase}"
+
+        return recovery_phrase
+
     end
 end
