@@ -18,6 +18,8 @@ class AccountSecurity
                 passwordStore = PasswordStore.new(account_id)
 
                 puts "Login successful welcome."
+                 # this will check which password needs to be updated if the user choose to set a reminder
+                passwordStore.checkTimer
             else
                 raise "Wrong password"
             end
