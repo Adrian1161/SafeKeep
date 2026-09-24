@@ -31,8 +31,20 @@ class AccountSecurity
     end
 
     # The user can enter their recovery phrase in order to update their password
-    def AccountRecovery(username, recoveryPhrase)
-      # TODO: Implement account recovery using recovery phrase
+    def accountRecovery(username, recoveryphrase)
+        account = Account.find_by(
+            username: username,
+            recovery_phrase: recoveryphrase
+        )
+        if account
+            puts "Account found type in new password."
+
+            new_password = gets.chomp
+            account.update(password: new_password)
+            puts "Password changed"
+        else
+            puts "Could not find account or recovery phrase is wrong."
+        end
     end
 
     # Creates and stores a recovery phrase for the user
