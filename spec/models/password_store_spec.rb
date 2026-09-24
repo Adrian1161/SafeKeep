@@ -13,6 +13,7 @@ RSpec.describe PasswordStore do
         )
     end
 
+
     it "Displays the user information that was saved" do 
         password_store = PasswordStore.new("1")
         puts "Users Information"
@@ -82,6 +83,48 @@ RSpec.describe PasswordStore do
         password_store.removeTimer("Microsoft")
         
         expect(password.change_password_reminder).to be_nil
+    end
+
+    it "allows the user to see websites that share the same username and password" do
+        password_store = PasswordStore.new("1")
+        Password.create(
+            username: "CaseTest",
+            password: "CaseTest",
+            website: "Amazon",
+            password_identifiers: 12,
+            account_id: "1",
+            change_password_reminder: nil
+        )
+
+        Password.create(
+            username: "CaseTest",
+            password: "CaseTest",
+            website: "Sony",
+            password_identifiers: 12,
+            account_id: "1",
+            change_password_reminder: nil
+        )
+
+        expect{password_store.combinationFinder("Amazon")}.not_to raise_error
+
+    end
+
+    it "If combination does not exist" do
+        password_store = PasswordStore.new("1")
+        Password.create(
+            username: "CaseTest2",
+            password: "CaseTest1",
+            website: "Sony",
+            password_identifiers: 12,
+            account_id: "1",
+            change_password_reminder: nil
+        )
+        expect{password_store.combinationFinder("Amazon")}.not_to raise_error
+    end
+
+    it "If user enters a website that is not in their table" do
+        password_store = PasswordStore.new("1")
+        expect{password_store.combinationFinder("sony")}.not_to raise_error
     end
 
 

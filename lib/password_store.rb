@@ -105,7 +105,33 @@ class PasswordStore
         end 
     end
 
-    
+    def combinationFinder(website)
+        password = Password.find_by(
+            website: website,
+            account_id: @account_id
+        )
+
+        if password
+        matches = Password.where(
+            username: password.username,
+            password: password.password,
+            account_id: @account_id
+        )
+            if matches.exists?
+                matches.each do |savedInformation|
+                    if savedInformation.website != website
+                    puts "Website: #{savedInformation.website}"
+                    puts "---------------------------"
+                    end
+                end
+            else
+                puts "No matches found"
+            end
+        else
+            puts "Websites not found"
+        end
+
+    end
 
 
 end
