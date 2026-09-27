@@ -16,7 +16,8 @@ class AccountSecurity
                 account_id = account.account_id
 
                 # Passes accountId to password_store.rb used to find users saved information
-                passwordStore = PasswordStore.new(account_id)
+                # passwordStore = PasswordStore.new(account_id) changed the logic to have main mene pass account Id instead
+                MainMenu = MainMenu.new(account_id)
 
                 puts "Login successful welcome."
                  # this will check which password needs to be updated if the user choose to set a reminder
