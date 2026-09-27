@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
-require 'rspec/rails'
-require_relative '../../config/environment'
+require_relative '../rails_helper'
 #Test cases for Account model
 RSpec.describe 'Account' do
   describe 'Account' do
@@ -11,8 +10,11 @@ RSpec.describe 'Account' do
     describe "created an account" do
       before(:each) do
         @account = Account.new(
+          account_id: 'test-account-1',
           username: 'test',
-          password: 'test1234'
+          password: 'test1234',
+          pin: '1234',
+          recovery_phrase: 'random test recovery phrase'
         )
       end
       it "should set the username" do
@@ -24,7 +26,12 @@ RSpec.describe 'Account' do
     end
     describe "username validation" do
       it "should reject an account without a username" do
-        account = Account.new(password: 'test1234')
+        account = Account.new(
+          account_id: 'test-account-2',
+          password: 'test1234',
+          pin: '1234',
+          recovery_phrase: 'another test recovery phrase'
+        )
         expect(account).not_to be_valid
       end
     end

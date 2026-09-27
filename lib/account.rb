@@ -7,6 +7,8 @@ TODO comments have been added to indicate areas that need implementation.
 =end
 class Account < ApplicationRecord
   has_secure_password
+  #adding below to be able to authenticate with recovery phrase
+  has_secure_password :recovery_phrase
 
   validates :username, presence: true, uniqueness: true
 end
