@@ -4,6 +4,7 @@
 This class handles password-related operations.
 =end
 require "securerandom"
+
 class PassHandler
 
   def initialize
@@ -47,15 +48,15 @@ class PassHandler
     end
   end
 
-  #adding method to find shared login websites story 6
+  # adding method to find shared login websites story 6
   def findCommonWebsiteCreds(selected_password, saved_passwords)
     saved_passwords.select do |saved|
       saved.id != selected_password.id &&
         saved.username == selected_password.username &&
         saved.password == selected_password.password
     end
-      .map(&:website)
-      .uniq
+                   .map(&:website)
+                   .uniq
   end
 
 end
