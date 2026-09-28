@@ -1,3 +1,4 @@
+require "tty-table"
 class PasswordStore
 
     attr_accessor :username, :password, :website, :password_identifiers
@@ -7,12 +8,12 @@ class PasswordStore
     end
 
     # Method that allows user to add a password they want to save 
-    def addPassword(username, password, website, password_identifiers, account_id, change_password_reminder)
+    def addPassword(username, password, website)
         Password.create(
             username: username,
             password: password,
             website: website,
-            password_identifiers: password_identifiers,
+            password_identifiers: nil,
             account_id: @account_id,
             change_password_reminder: @change_password_reminder
         )
@@ -79,27 +80,49 @@ class PasswordStore
     end
 
     def checkTimer()
-        password = Password.where(
-            account_id: @account_id
-        )
+        password = Password.where(account_id: @account_id)
         password.each do |password|
+            
             if password.change_password_reminder && password.change_password_reminder <= Date.current
                 puts "Password for #{password.website} needs to be updated"
             end
         end 
     end
 
-    def viewPasswords()
-        password = Password.where(account_id: @account_id)
+    def viewTimer()
+         password = Password.where(account_id: @account_id)
 
-        if password.exists?
-             password.each do |savedInformation|
-                puts "Website: #{savedInformation.website}"
-                puts "Username: #{savedInformation.username}"
-                puts "Password: #{savedInformation.password}"
-                puts "---------------------------"
+         password.each do |password|
+            if password.change_password_reminder
+                puts "#{password.website}: #{password.change_password_reminder}"
+            else "No Timers currently set"
             end
-        
+        end
+    end
+
+    def viewWebsites()
+        choices = []
+        websites = Password.where(account_id: @account_id)
+
+        if websites.empty?
+            return "No saved Websites found"
+        else
+            websites.each do |website|
+                choices << website.website
+            end
+            return choices         
+    end
+end
+
+      def websiteInformation(website)
+        websites = Password.find_by(account_id: @account_id, website: website)
+
+        if websites 
+            table = TTY::Table.new(
+                header: ["Website", "Username", "Password"]
+            )
+                table << [websites.website, websites.username, websites.password]
+                puts table.render
         else
             puts "Could not find any saved passwords"
         end 
@@ -112,6 +135,9 @@ class PasswordStore
         )
 
         if password
+            table = TTY::Table.new(
+                header: ["Matching Websites"]
+            )
         matches = Password.where(
             username: password.username,
             password: password.password,
@@ -120,10 +146,10 @@ class PasswordStore
             if matches.exists?
                 matches.each do |savedInformation|
                     if savedInformation.website != website
-                    puts "Website: #{savedInformation.website}"
-                    puts "---------------------------"
+                    table << [savedInformation.website]
                     end
                 end
+                puts table.render
             else
                 puts "No matches found"
             end

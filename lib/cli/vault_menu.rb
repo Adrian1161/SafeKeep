@@ -14,9 +14,12 @@ def initialize(account_id)
 end
 
 def vaultMenu
+    @password_store.checkTimer
+
     choices = @prompt.select("Vault Menu") do |menu|
         menu.choice "Saved Websites"
         menu.choice "Add Password"
+        menu.choice "Check Password Timers"
         menu.choice "Main Menu"
     end
 
@@ -34,6 +37,10 @@ def vaultMenu
                 password,
                 website
             )
+            vaultMenu
+        when "Check Password Timers"
+            @password_store.viewTimer
+            vaultMenu
         when "Main Menu"
             return
         end
@@ -74,6 +81,9 @@ def vaultMenu
                 return
             when "Set Timer"
                 @password_store.passwordTimer(chosenWebsite)
+                return
+            when "Show Timer"
+                @password_store.checkTimer(chosenWebsite)
                 return
             when "Remove Timer"
                 @password_store.removeTimer(chosenWebsite)

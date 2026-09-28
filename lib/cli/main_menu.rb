@@ -11,19 +11,20 @@ def initialize(account_id)
     @prompt = TTY::Prompt.new
     @password_store = PasswordStore.new(account_id)
 end
-
 def main_menu
-    choices = @prompt.select("Main Menu") do |menu|
-        menu.choice "Vault"
-        menu.choice "Logout"
-    end
+    loop do 
+        choices = @prompt.select("Main Menu") do |menu|
+            menu.choice "Vault"
+            menu.choice "Logout"
+        end
 
-    case choices
-    when "Vault"
-        vault_menu = VaultMenu.new(@account_id)
-        vault_menu.vaultMenu
-    when "Logout"
-        return
+        case choices
+        when "Vault"
+            vault_menu = VaultMenu.new(@account_id)
+            vault_menu.vaultMenu
+        when "Logout"
+            break
+        end
     end
 end
 

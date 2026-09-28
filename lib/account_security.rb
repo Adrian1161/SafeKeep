@@ -14,13 +14,11 @@ class AccountSecurity
             # Compares the hashed password in the database with the password the user entered
             if account.authenticate(enteredPassword)
                 account_id = account.account_id
-
                 # Passes accountId to password_store.rb used to find users saved information
-                passwordStore = PasswordStore.new(account_id)
 
                 puts "Login successful welcome."
                  # this will check which password needs to be updated if the user choose to set a reminder
-                return passwordStore
+                return account_id 
             else
                 raise "Wrong password"
                 return false

@@ -38,7 +38,8 @@ class LoginMenu
     account_passwords = @account_security.login(username, password)
     if account_passwords
       # TODO fix this once MainMenu has been done
-      MainMenu.new(account_passwords).call
+      #MainMenu.new(account_passwords).call
+      MainMenu.new(account_passwords).main_menu
     else
       call
     end
