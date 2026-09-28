@@ -37,4 +37,81 @@
 
 
 ## User Interface
-- This is a terminal application
+- This is a terminal application which will be using a formatted interface to display information to the user.
+- We decided to go with TTY Gems as it allows for a more user-friendly interface within the terminal.
+- We have three main UI parts:
+  - #### Login Menu
+    - This is the first menu that the user will interact with when they start the application.
+    - Login Menu
+  ```
+  Welcome to SafeKeep. What would you like to do?
+  
+  >   Log in
+    Create account
+    Use recovery phrase
+    ```
+    - Create Account
+    ```
+    Choose a username: philipsa
+    Choose a password: ••••••••
+    Choose a PIN: ••••
+  
+    Your recovery phrase is:
+    cabbage marble thumb switch virus reward naive note bulk admit price nominee
+    ```
+    - Use Recovery Phrase
+    ```
+    Username: philipsa
+    Recovery phrase: ••••••••••••
+  
+    New password: ••••••••
+    ```
+    - #### Main Menu
+      - This allows the user to go to their vault or log out
+  ```
+  Main Menu
+  
+  > Vault
+    Logout
+  ```
+    - #### Vault Menu
+      - This allows the user to view and manage their passwords.
+      - Vault Menu
+  ```
+  Vault Menu
+  
+  > Saved Websites
+    Add Password
+    Main Menu
+  ```
+  - Add a Password
+  ```
+  username: philipsa
+  Password: ••••••••
+  Website: example.com
+  ```
+  - Saved Websites
+  ```
+  Websites
+  
+  > example.com
+  another-site.com
+  Back
+  ```
+  - Website Actions
+  ```
+  example.com
+  
+  > Remove Website Information
+    Show Website Information
+    Update Password
+    Set Timer
+    Remove Timer
+    Matching Credentials
+    Back
+  ```
+## Design Decisions
+- For the UI we decided to use the TTY Gems because of the simplicity it allowed us to show our sensitive data in a nice formatted way to the user.
+- As well as, it allows for easy navigation and interaction within the application for the user, especially for a terminal application.
+- Also, we used rails for the ease of development and integration with local storage, and set up of databases and tables.
+- Rails allowed for use to be able to complete this project in a timely manner.

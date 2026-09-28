@@ -45,5 +45,24 @@ Navigator: Philip
 - Defining methods for `addPassword`, `removePassword`, `updatePassword`, and `passwordTimer`
 - Set up getter/setters for `passwordIdentifiers`, `username`, `password`, and `website`
 
+## Session 5 — 2026-09-26
 
-=end 
+**Driver:** Philip  
+**Navigator:** Adrian
+
+## Work Completed
+
+- Merging of all branches
+- resolving conflicts
+- Starting UI development
+
+## Session 6 — 2026-09-27
+
+**Driver:** Philip  
+**Navigator:** Adrian
+
+## Work Completed
+
+- Finalized UI development
+- Documentation updates
+- `safe_keep.rb` implementation along with the `--install` flag for initial start up
