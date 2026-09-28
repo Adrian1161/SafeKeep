@@ -3,12 +3,6 @@
 
 # This menu is once a user has selected a password to view; it will show the password and websites associated with it
 
-# added a option to add timer and remove
-# add a option to view combinations 
-# use a list that the user can choose from
-# Find a way for the system to keep track of which website the user is currently on and pass it as an input 
-# add a way back to the start of vault and add one to get to the main menu
-# add method to show menu choice to remover timer after the user has decided to set one(Keep Remove Timer as unselectable by default)
 class VaultMenu
 require "tty-prompt"
 require_relative "../password_store"
