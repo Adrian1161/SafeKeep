@@ -12,7 +12,7 @@ class AccountSecurity
 
         if account
             # Compares the hashed password in the database with the password the user entered
-            if BCrypt::Password.new(account.password) == enteredPassword
+            if account.authenticate(enteredPassword)
                 account_id = account.account_id
 
                 # Passes accountId to password_store.rb used to find users saved information
@@ -20,13 +20,15 @@ class AccountSecurity
 
                 puts "Login successful welcome."
                  # this will check which password needs to be updated if the user choose to set a reminder
-                passwordStore.checkTimer
+                return passwordStore
             else
                 raise "Wrong password"
+                return false
             end
 
         else
             raise "Account not found"
+            return false
         end
     end
 
@@ -51,7 +53,7 @@ class AccountSecurity
     def recoveryPhraseCreation()
         # This line creates the phrases for the user default values are 128 bits and in english
         recovery_phrase = BipMnemonic.to_mnemonic(
-            bits: 128,
+            bits: 64,
             language: "english"
         )
 
