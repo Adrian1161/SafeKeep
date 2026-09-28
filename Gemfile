@@ -18,6 +18,8 @@ gem "stimulus-rails"
 gem "jbuilder"
 
 gem "rspec"
+# adding for statement coverage generation
+gem "simplecov"
 
 gem "bip_mnemonic2"
 

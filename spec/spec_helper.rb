@@ -1,5 +1,16 @@
 # frozen_string_literal: true
 
+require "simplecov"
+
+# adding for statement coverage
+SimpleCov.start "rails" do
+  cover "{app,lib}/**/*.rb"
+  coverage :line do
+    minimum 80
+  end
+  enable_coverage :branch
+end
+
 RSpec.configure do |config|
   config.expect_with :rspec do |expectations|
     expectations.include_chain_clauses_in_custom_matcher_descriptions = true
