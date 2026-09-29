@@ -25,7 +25,13 @@ Safekeep can also generate new passwords for the user based upon requirements gi
 4. The user can also set timers for specific credentials as a reminder when it needs to be updated.
 5. Once the user is done reviewing their passwords, they can log out.
 ### Instructions for running the tests and generating the coverage report
-
+- For this section simply execute the following command: `bundle exec rspec`
+- We added the gem `simplecov` to generate the coverage report.
+- The report should be generated in the `coverage` directory.
+  - In this path -> `coverage/index.html`
+  - You can view this in your browser.
+  - Also coverage percentage will be displayed along with the rspec results.
+  - Sample -> `Line coverage: 205 / 252 (81.34%)`
 ### List of main features
 - Users can create an account
 - Users can log in and see stored passwords
