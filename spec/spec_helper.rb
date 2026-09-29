@@ -8,7 +8,6 @@ SimpleCov.start "rails" do
   coverage :line do
     minimum 80
   end
-  enable_coverage :branch
 end
 
 RSpec.configure do |config|

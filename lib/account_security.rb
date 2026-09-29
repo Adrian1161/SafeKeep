@@ -5,59 +5,60 @@ require "bcrypt"
 require "bip_mnemonic2"
 
 class AccountSecurity
-    # Allows the user to login in
-    def login(enteredUsername, enteredPassword)
-            # TODO: Implement login logic
-            account = Account.find_by(username: enteredUsername)
+  # Allows the user to login in
+  def login(enteredUsername, enteredPassword)
+    # TODO: Implement login logic
+    account = Account.find_by(username: enteredUsername)
 
-        if account
-            # Compares the hashed password in the database with the password the user entered
-            if account.authenticate(enteredPassword)
-                account_id = account.account_id
-                # Passes accountId to password_store.rb used to find users saved information
+    if account
+      # Compares the hashed password in the database with the password the user entered
+      if account.authenticate(enteredPassword)
+        account_id = account.account_id
+        # Passes accountId to password_store.rb used to find users saved information
 
-                puts "Login successful welcome."
-                 # this will check which password needs to be updated if the user choose to set a reminder
-                return account_id 
-            else
-                raise "Wrong password"
-                return false
-            end
+        puts "Login successful welcome."
+        # this will check which password needs to be updated if the user choose to set a reminder
+        return account_id
+      else
+        raise "Wrong password"
+        return false
+      end
 
-        else
-            raise "Account not found"
-            return false
-        end
+    else
+      raise "Account not found"
+      return false
     end
+  end
 
-    # The user can enter their recovery phrase in order to update their password
-    def accountRecovery(username, recoveryphrase)
-        account = Account.find_by(
-            username: username,
-            recovery_phrase: recoveryphrase
-        )
-        if account
-            puts "Account found type in new password."
+  # The following got commented out as it is being handled by Account class
+  # The user can enter their recovery phrase in order to update their password
+  #    def accountRecovery(username, recoveryphrase)
+  #        account = Account.find_by(
+  #            username: username,
+  #            recovery_phrase_digest: recoveryphrase
+  #        )
+  #        if account
+  #            puts "Account found type in new password."
+  #
+  #            new_password = gets.chomp
+  #            account.update(password: new_password)
+  #            puts "Password changed"
+  #        else
+  #            puts "Could not find account or recovery phrase is wrong."
+  #        end
+  #    end
 
-            new_password = gets.chomp
-            account.update(password: new_password)
-            puts "Password changed"
-        else
-            puts "Could not find account or recovery phrase is wrong."
-        end
-    end
+  # Creates and stores a recovery phrase for the user
+  def recoveryPhraseCreation()
+    # This line creates the phrases for the user default values are 128 bits and in english
+    recovery_phrase = BipMnemonic.to_mnemonic(
+      bits: 64,
+      language: "english"
+    )
 
-    # Creates and stores a recovery phrase for the user
-    def recoveryPhraseCreation()
-        # This line creates the phrases for the user default values are 128 bits and in english
-        recovery_phrase = BipMnemonic.to_mnemonic(
-            bits: 64,
-            language: "english"
-        )
+    puts "Your recovery phrases are: #{recovery_phrase}"
 
-        puts "Your recovery phrases are: #{recovery_phrase}"
+    return recovery_phrase
 
-        return recovery_phrase
-
-    end
+  end
 end

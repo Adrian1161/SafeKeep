@@ -5,15 +5,15 @@ require_relative "../../lib/account_security"
 RSpec.describe AccountSecurity do
   before do
     recovery_phrase = BipMnemonic.to_mnemonic(
-      bits: 128,
+      bits: 72,
       language: "english"
     )
 
-    Account.create(
+    Account.create!(
     account_id: "1",
     username: "CaseTest",
-    password: BCrypt::Password.create("CaseTest"),
-    pin: 123,
+    password: "CaseTest",
+    pin: "123",
     recovery_phrase: recovery_phrase
     )
 
@@ -43,20 +43,4 @@ end
 
   end
 
-  it "Allows the user to change their password using recovery phrase" do 
-    account_security = AccountSecurity.new
-    account = Account.create(
-      account_id: "2",
-      username: "TestCase",
-      password: "TestPassword",
-      pin: 123,
-      recovery_phrase: "Dog Cat Car"
-    )
-    
-    allow(account_security).to receive(:gets).and_return("NewTestPass")
-    account_security.accountRecovery("TestCase", "Dog Cat Car")
-    puts account.reload.password
-    expect(account.reload.password).to eq("NewTestPass")
-
-  end
 end
